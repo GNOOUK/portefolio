@@ -1,14 +1,34 @@
-const text = "Salut, je suis Développeur";
-const typing = document.querySelector(".typing");
-
-let i = 0;
-
-function typeEffect() {
-  if (i < text.length) {
-    typing.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeEffect, 80);
-  }
+function loadProjects(){
+  let container = document.getElementById("projects");
+  projects.forEach(p=>{
+    container.innerHTML += `
+      <div class="card">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+      </div>
+    `;
+  });
 }
 
-typeEffect();
+function loadFeedbacks(){
+  let container = document.getElementById("feedbacks");
+  feedbacks.forEach(f=>{
+    container.innerHTML += `
+      <div class="card">
+        <b>${f.user}</b>
+        <p>${f.text}</p>
+      </div>
+    `;
+  });
+}
+
+function loadSocials(){
+  let container = document.getElementById("socials");
+  socials.forEach(s=>{
+    container.innerHTML += `<p>${s.name}</p>`;
+  });
+}
+
+loadProjects();
+loadFeedbacks();
+loadSocials();
