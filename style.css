@@ -1,112 +1,63 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Consolas, monospace;
+body{
+margin:0;
+font-family:Arial;
+background:#0b0b0f;
+color:white;
 }
 
-body {
-  background: #050505;
-  color: white;
-  overflow-x: hidden;
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+background:#111;
+position:sticky;
+top:0;
 }
 
-/* GRID BACKGROUND */
-.grid {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(rgba(0,255,140,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,140,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -1;
+.left{
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-/* HEADER */
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+.pfp{
+width:40px;
+height:40px;
+border-radius:50%;
 }
 
-.typing {
-  font-size: 3rem;
-  color: #00ff88;
-  margin-bottom: 15px;
+.name{
+font-weight:bold;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  color: #aaa;
-  max-width: 600px;
-  line-height: 1.6;
+.login-btn{
+color:white;
+text-decoration:none;
+padding:8px 15px;
+border:1px solid white;
 }
 
-.btn {
-  margin-top: 30px;
-  padding: 14px 30px;
-  border: 2px solid #00ff88;
-  color: #00ff88;
-  text-decoration: none;
-  transition: 0.3s;
+section{
+padding:60px 20%;
 }
 
-.btn:hover {
-  background: #00ff88;
-  color: black;
+h2{
+color:#00ff88;
 }
 
-/* SECTIONS */
-section {
-  padding: 100px 10%;
+#home{
+text-align:center;
+padding:120px 20px;
 }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  color: #00ff88;
+#home h1{
+font-size:32px;
 }
 
-/* PROJECTS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #111;
-  padding: 20px;
-  border: 1px solid #222;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  border-color: #00ff88;
-}
-
-/* SKILLS */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skill {
-  padding: 10px 15px;
-  background: #111;
-  border: 1px solid #222;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #666;
+.card{
+background:#15151d;
+padding:15px;
+margin:10px 0;
+border-left:3px solid #00ff88;
 }
