@@ -6,24 +6,24 @@ function show(page){
   document.getElementById(page).classList.add("active");
 }
 
-/* LOAD PROJECTS */
-let proj = document.getElementById("projects");
-projects.forEach(p=>{
-  proj.innerHTML += `
+/* PROJETS */
+let p = document.getElementById("projects");
+projects.forEach(x=>{
+  p.innerHTML += `
     <div class="card">
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
+      <h3>${x.title}</h3>
+      <p>${x.desc}</p>
     </div>
   `;
 });
 
-/* LOAD FEEDBACKS */
-let fb = document.getElementById("feedbacks");
-feedbacks.forEach(f=>{
-  fb.innerHTML += `
+/* FEEDBACKS */
+let f = document.getElementById("feedbacks");
+feedbacks.forEach(x=>{
+  f.innerHTML += `
     <div class="card">
-      <b>${f.user}</b>
-      <p>${f.text}</p>
+      <b>${x.user}</b>
+      <p>${x.text}</p>
     </div>
   `;
 });
