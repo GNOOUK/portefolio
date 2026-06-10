@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="login">
+  <h2>Connexion Admin</h2>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Connexion</button>
+</div>
+
+<div id="panel" style="display:none">
+
+  <h2>Panel Admin</h2>
+
+  <h3>Ajouter Projet</h3>
+  <input id="ptitle" placeholder="Titre">
+  <input id="pdesc" placeholder="Description">
+  <button onclick="addProject()">Ajouter</button>
+
+  <h3>Ajouter Feedback</h3>
+  <input id="fuser" placeholder="User">
+  <input id="ftext" placeholder="Text">
+  <button onclick="addFeedback()">Ajouter</button>
+
+</div>
+
+<script src="data.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
