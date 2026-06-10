@@ -1,37 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Admin Panel</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portfolio 3D</title>
+    <link rel="stylesheet" href="admin-styles.css">
 </head>
-
 <body>
+    <!-- Login Section -->
+    <div id="loginContainer" class="login-container">
+        <div class="login-box">
+            <h1>🔐 Admin Panel</h1>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Utilisateur</label>
+                    <input type="text" id="username" placeholder="admin" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="admin123" required>
+                </div>
+                <button type="submit" class="login-button">Se Connecter</button>
+                <p id="loginError" class="error-message"></p>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; text-align: center;">
+                    <strong>Identifiants par défaut:</strong><br>
+                    Utilisateur: <code>admin</code><br>
+                    Mot de passe: <code>admin123</code>
+                </p>
+            </form>
+        </div>
+    </div>
 
-<div id="login">
-  <h2>Connexion Admin</h2>
-  <input id="user" placeholder="Username">
-  <input id="pass" type="password" placeholder="Password">
-  <button onclick="login()">Connexion</button>
-</div>
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>⚙️ Admin</h2>
+                <button id="logoutBtn" class="logout-button">Déconnexion</button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="projets">
+                    <span class="icon">📁</span> Projets
+                </a>
+                <a href="#" class="nav-item" data-section="feedbacks">
+                    <span class="icon">💬</span> Feedbacks
+                </a>
+                <a href="#" class="nav-item" data-section="utilisateurs">
+                    <span class="icon">👥</span> Utilisateurs
+                </a>
+            </nav>
+        </aside>
 
-<div id="panel" style="display:none">
+        <!-- Main Content -->
+        <main class="admin-content">
+            <!-- Header -->
+            <div class="admin-header">
+                <h1 id="sectionTitle">Gérer les Projets</h1>
+                <div class="header-info">
+                    <span>Bienvenue, <strong id="userName">Admin</strong></span>
+                </div>
+            </div>
 
-  <h2>Panel Admin</h2>
+            <!-- Projets Section -->
+            <section id="projetsSection" class="content-section active">
+                <div class="section-header">
+                    <h2>Mes Projets</h2>
+                    <button id="addProjectBtn" class="btn btn-primary">+ Ajouter un Projet</button>
+                </div>
 
-  <h3>Ajouter Projet</h3>
-  <input id="ptitle" placeholder="Titre">
-  <input id="pdesc" placeholder="Description">
-  <button onclick="addProject()">Ajouter</button>
+                <!-- Projects Table -->
+                <div class="table-container">
+                    <table id="projectsTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsTableBody">
+                            <!-- Projets seront chargés ici -->
+                        </tbody>
+                    </table>
+                </div>
 
-  <h3>Ajouter Feedback</h3>
-  <input id="fuser" placeholder="User">
-  <input id="ftext" placeholder="Text">
-  <button onclick="addFeedback()">Ajouter</button>
+                <!-- Add/Edit Project Modal -->
+                <div id="projectModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 id="projectModalTitle">Ajouter un Projet</h2>
+                            <button class="close-button" onclick="closeProjectModal()">&times;</button>
+                        </div>
+                        <form id="projectForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="projectTitle">Titre du Projet</label>
+                                <input type="text" id="projectTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectDescription">Description</label>
+                                <textarea id="projectDescription" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectImage">Image du Projet</label>
+                                <input type="file" id="projectImage" accept="image/*">
+                                <small>Format: JPG, PNG, WebP (Max 5MB)</small>
+                            </div>
+                            <div id="imagePreview" class="image-preview" style="display: none;">
+                                <img id="previewImg" src="" alt="Aperçu">
+                            </div>
+                            <div class="modal-buttons">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeProjectModal()">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
 
-</div>
+            <!-- Feedbacks Section -->
+            <section id="feedbacksSection" class="content-section">
+                <div class="section-header">
+                    <h2>Feedbacks des Visiteurs</h2>
+                    <button id="clearFeedbacksBtn" class="btn btn-danger">Supprimer tout</button>
+                </div>
 
-<script src="data.js"></script>
-<script src="admin.js"></script>
+                <div class="feedbacks-container" id="feedbacksContainer">
+                    <!-- Feedbacks seront chargés ici -->
+                </div>
+            </section>
 
+            <!-- Utilisateurs Section -->
+            <section id="utilisateursSection" class="content-section">
+                <div class="section-header">
+                    <h2>Gérer les Utilisateurs Admins</h2>
+                    <button id="addUserBtn" class="btn btn-primary">+ Ajouter un Admin</button>
+                </div>
+
+                <div class="table-container">
+                    <table id="usersTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Utilisateur</th>
+                                <th>Date Création</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Utilisateurs seront chargés ici -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Add User Modal -->
+                <div id="userModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Ajouter un Admin</h2>
+                            <button class="close-button" onclick="closeUserModal()">&times;</button>
+                        </div>
+                        <form id="userForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="newUsername">Nom d'utilisateur</label>
+                                <input type="text" id="newUsername" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Mot de passe</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="modal-buttons">
+                                <button type="submit" class="btn btn-primary">Créer</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeUserModal()">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin-script.js"></script>
 </body>
 </html>
