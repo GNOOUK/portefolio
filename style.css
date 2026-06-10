@@ -1,18 +1,18 @@
 body{
 margin:0;
 font-family:Arial;
-background:#0b0b0f;
+background:#07070b;
 color:white;
 }
 
-header{
+/* TOP BAR */
+.topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 25px;
+padding:12px 20px;
 background:#111;
-position:sticky;
-top:0;
+border-bottom:1px solid #222;
 }
 
 .left{
@@ -22,41 +22,67 @@ gap:10px;
 }
 
 .pfp{
-width:40px;
-height:40px;
+width:38px;
+height:38px;
 border-radius:50%;
 }
 
-.name{
+.logo{
 font-weight:bold;
-}
-
-.login-btn{
-color:white;
-text-decoration:none;
-padding:8px 15px;
-border:1px solid white;
-}
-
-section{
-padding:60px 20%;
-}
-
-h2{
 color:#00ff88;
 }
 
-#home{
-text-align:center;
-padding:120px 20px;
+.btn.small{
+padding:6px 12px;
+border:1px solid #00ff88;
+color:#00ff88;
+text-decoration:none;
 }
 
-#home h1{
-font-size:32px;
+/* NAV */
+.nav{
+display:flex;
+gap:10px;
+padding:15px;
+justify-content:center;
 }
 
+.nav button{
+background:#111;
+border:1px solid #222;
+color:white;
+padding:10px 15px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.nav button:hover{
+border-color:#00ff88;
+color:#00ff88;
+}
+
+/* PAGES */
+.content{
+padding:40px;
+}
+
+.page{
+display:none;
+animation:fade 0.3s ease;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* CARDS */
 .card{
-background:#15151d;
+background:#12121a;
 padding:15px;
 margin:10px 0;
 border-left:3px solid #00ff88;
