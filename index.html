@@ -1,67 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mon Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8">
+<title>Gnoouk Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="grid"></div>
-
+<!-- HEADER -->
 <header>
-  <h1 class="typing"></h1>
+  <div class="left">
+    <img src="https://i.imgur.com/8Km9tLL.png" class="pfp">
+    <span class="name">Gnoouk</span>
+  </div>
 
-  <p class="subtitle">
-    Développeur Web & Roblox Builder.<br>
-    Je crée des projets modernes, interactifs et optimisés.
-  </p>
-
-  <a href="#projects" class="btn">Voir mes projets</a>
+  <div class="right">
+    <a href="admin.html" class="login-btn">Connexion</a>
+  </div>
 </header>
 
-<section id="projects">
-  <h2 class="title">Projets</h2>
-
-  <div class="projects">
-
-    <div class="card">
-      <h3>Zombie Survival Tycoon</h3>
-      <p>Un jeu Roblox avec base, zombies et boss.</p>
-    </div>
-
-    <div class="card">
-      <h3>UnderWater Power</h3>
-      <p>Aventure sous-marine inspirée de Blox Fruits.</p>
-    </div>
-
-    <div class="card">
-      <h3>Discord Bot</h3>
-      <p>Bot avec mini-jeux et système de boutons.</p>
-    </div>
-
-  </div>
+<!-- HOME -->
+<section id="home">
+  <h1>Des prix bas pour une qualité élevée.</h1>
+  <p>Développement • 3D • Jeux Roblox • Scripts</p>
 </section>
 
+<!-- PROJETS -->
 <section>
-  <h2 class="title">Compétences</h2>
-
-  <div class="skills">
-    <div class="skill">HTML</div>
-    <div class="skill">CSS</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">Lua</div>
-    <div class="skill">Node.js</div>
-    <div class="skill">Discord.js</div>
-  </div>
+  <h2>Mes Projets</h2>
+  <div id="projects"></div>
 </section>
 
-<footer>
-  © 2026 - Mon Portfolio
-</footer>
+<!-- FEEDBACKS -->
+<section>
+  <h2>Feedbacks</h2>
+  <div id="feedbacks"></div>
+</section>
 
+<!-- ABOUT -->
+<section>
+  <h2>A propos</h2>
+  <p>
+    Gnoouk est un passionné qui a commencé la 3D avec l'aide de Nost.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2>Contact</h2>
+  <p>Discord : <b>dev_gnoouk</b></p>
+  <div id="socials"></div>
+</section>
+
+<script src="data.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
