@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Créations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Mes Créations</h1>
+    <nav>
+        <a href="accueil.html">Accueil</a>
+        <a href="projects.html">Projects</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="projects-header">
+    <p>Découvrez une sélection de mes meilleurs travaux de modélisation 3D pour Roblox.</p>
+
+    <div class="categories">
+        <button class="cat active">Tous</button>
+        <button class="cat">Véhicules</button>
+        <button class="cat">Armes</button>
+        <button class="cat">UGC</button>
+        <button class="cat">Batiment</button>
+        <button class="cat">Objects</button>
+        <button class="cat">Autres</button>
+    </div>
+</section>
+
+<section class="projects-grid">
+
+    <div class="project-card" data-cat="Autres">
+        <img src="image/Ascenseur-Ancien.jpeg" alt="Ascenseur Ancien">
+        <h3>Ascenseur Ancien</h3>
+        <p>Ascenseur ancien</p>
+        <span class="tag">Autres</span>
+    </div>
+
+    <div class="project-card" data-cat="Batiment">
+        <img src="image/base.png" alt="Base">
+        <h3>Base</h3>
+        <p>Base avec des murs invisibles devant sans texture</p>
+        <span class="tag">Batiment</span>
+    </div>
+
+</section>
+
+<!-- SCRIPT FILTRE -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".cat");
+    const cards = document.querySelectorAll(".project-card");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+
+            // bouton actif
+            buttons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const cat = btn.textContent.trim();
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute("data-cat");
+
+                if (cat === "Tous" || cardCat === cat) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+});
+</script>
+
+</body>
+</html>
