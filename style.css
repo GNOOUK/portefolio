@@ -9,6 +9,12 @@ body {
     font-family: Arial, sans-serif;
     background: #0f0f0f;
     color: #e6e6e6;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(224, 123, 99, 0.12), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(255, 90, 60, 0.10), transparent 60%),
+        linear-gradient(135deg, #0d0d0d, #111);
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* --- HEADER / NAVBAR --- */
