@@ -529,3 +529,66 @@ nav a:hover {
     color: #ccc;
     font-size: 15px;
 }
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr !important; /* 1 carte par ligne */
+        padding: 10px !important;
+        gap: 12px !important;
+    }
+
+    .project-card {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .project-card img {
+        height: 180px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .categories {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    .cat {
+        flex-shrink: 0;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+@media (max-width: 600px) {
+    .user-block {
+        padding: 15px;
+    }
+
+    .user-info {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .user-pfp {
+        width: 50px;
+        height: 50px;
+    }
+
+    .review-card {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav a {
+        padding: 8px 12px;
+        margin: 0 5px;
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
