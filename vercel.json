@@ -3,6 +3,6 @@
     { "source": "/feedback", "destination": "/feedback.html" },
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/index", "destination": "/index.html" }
+    { "source": "/accueil", "destination": "/index.html" }
   ]
 }
